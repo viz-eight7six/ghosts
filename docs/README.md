@@ -29,7 +29,7 @@ Ghosts is a javascript web application based on the popular game Pac-Man, which 
 
 This app will be on a single screen which will have a navbar, a game scrren body and a bottom footer that has a menu and controls
 
-![wireframes](docs/wireframes/pacman-wireframe.jpg)
+![wireframes](/wireframes/pacman-wireframe.jpg)
 
 ##Architecture and Technologies
 
