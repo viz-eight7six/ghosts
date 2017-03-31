@@ -1,10 +1,10 @@
 # Ghosts
 
-Ghosts is a javascript application inspired by Pacman.
+Ghosts is a javascript application inspired by Pac-Man.
 
 [Pacman](http://pacman.com/en/)
 
-Live site: [ghosts link]
+[Live site: Ghosts](https://viz-eight7six.github.io/ghosts/)
 
 Ghosts utilizes the following:
 
@@ -76,7 +76,7 @@ drawMap() {
 
 The game is won by checking a if the Blinky and PacMan is at the same location at the same time.
 
-A feature in this game is that there are half steps and the PacMan can dodge Blinky even if they walk through each other. This gives a more interesting effect because the PacMan could jump of sidestep out of the way. 
+A feature in this game is that there are half steps and the PacMan can dodge Blinky even if they walk through each other. This gives a more interesting effect because the PacMan could jump of sidestep out of the way.
 
 ```javascript
 if (this.blinky.x === this.pacman.x && this.blinky.y === this.pacman.y)
