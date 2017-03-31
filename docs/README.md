@@ -1,56 +1,99 @@
-#Ghosts
+# Ghosts
 
-##Background
+Ghosts is a javascript application inspired by Pacman.
 
-Pac-Man is a 1980s arcade game developed by Namco. This game twist by having the player play as the ghost instead of Pac-Man.
+[Pacman](http://pacman.com/en/)
 
-The rules will be pretty simple:
+Live site: [ghosts link]
 
-  - The ghosts lose if the Pac-Man eats all the pills on the board.
-  - The ghosts lose if all the Ghosts are eaten by the Pac-Man.
-  - The ghosts win if they manage to run the Pac-Man out of lives.
+Ghosts utilizes the following:
 
-##Minimum Viable Product
+- Javascript ES6
+- jQuery
+- Canvas
+- CSS
 
-Ghosts is a javascript web application based on the popular game Pac-Man, which mirrors the original game with a twist. the player is a ghost competing for points by eating the Pac-Man.
+# Features
 
-###Users will be able to:
+The application is composed of two primary features:
 
-- [ ]Start pause and Reset game
-- [ ]Move ghost to eat Pac-Man
-- [ ]Get eaten by powered Pac-Man
-- [ ]Turn off sound
+### Gameplay
 
-## Design Docs
+The game is played by using the ghost, Blinky, to chase after the Pac-Man. The Pac-Man runs around eating pellets. The game can be paused, resumed, and reloaded when the game is over.
 
-This app will be on a single screen which will have a navbar, a game scrren body and a bottom footer that has a menu and controls
+![GameStart](http://res.cloudinary.com/cloud-vinson/image/upload/v1490983377/Screen_Shot_2017-03-31_at_10.47.29_AM_xdx1w8.png)
 
-![wireframes](/wireframes/pacman-wireframe.jpg)
+The game ends when either Blinky or Pac-Man catches each other, or when the Pac-Man eats all the pellets on the board.
 
-##Architecture and Technologies
+![GameWin](http://res.cloudinary.com/cloud-vinson/image/upload/v1490983377/Screen_Shot_2017-03-31_at_10.33.25_AM_xhgytt.png)
 
-This project will be implemented using Javascript. The images will be rendered using canvas or easel.
+![GameLose](http://res.cloudinary.com/cloud-vinson/image/upload/v1490983377/Screen_Shot_2017-03-31_at_10.51.08_AM_c4dzys.png)
 
-##Implementation Timeline
+The user is allowed to control Pac-Man by turning off the auto-pilot function.
 
-**Day1: Setup**
+### Audio
 
-Objective: Setup general javascript modules to make a game. Study and research how to implement ghosts from Pac-Man
+A audio clip of a remix with Pac-Man music, PACMAN by MartyParty is played when the site is loaded. Users are able to control the volume, pause the music, and mute the player.
 
-**Day2: Easel/Canvas**
+# Design
 
-Objective: Create all rendered images using Easel or Canvas
+### Logic
 
-**Day3: Character Movements**
+#### Map
 
-Objective: Implement User move sets and ai move logic
+The map is made taking an array and drawing each 30 x 30 pixel block based on its type. As the PacMan transverses the map, the map is re-rendered removing the food.
 
-**Day4: Menu Modal/Clean Up/Play testing**
+```javascript
+drawMap() {
+  this.ctx.clearRect(0, 0, 570, 660);
+  this.ctx.fillStyle = "black";
+  this.ctx.fillRect(0, 0, 570, 660);
+  this.maze.forEach((row, y) => (row.forEach((block, x) => {
+    let xPix = x*30;
+    let yPix = y*30;
+    if(block.isWall){
+      return block.drawWall(xPix, yPix);
+    }
+    else{
+      if(block.foodType === undefined){
+        return block.drawEmpty(xPix, yPix);
+      }
+      else if (block.foodType === "gate") {
+        return block.drawGate(xPix, yPix);
+      }
+      else if (block.foodType === "food") {
+        return block.drawFood(xPix, yPix);
+      }
+      else{
+        return block.drawPower(xPix, yPix);
+      }
+    }
+  })));
+}
+```
 
-Objective: Create a menu modal to overlay the screen when game is paused or to next level.
+#### Game win
 
-##Bonus Features
+The game is won by checking a if the Blinky and PacMan is at the same location at the same time.
 
-- [ ]Multiplayer mode
-- [ ]Allow users to select the ghost they want to use
-- [ ]Multiple maps
+A feature in this game is that there are half steps and the PacMan can dodge Blinky even if they walk through each other. This gives a more interesting effect because the PacMan could jump of sidestep out of the way. 
+
+```javascript
+if (this.blinky.x === this.pacman.x && this.blinky.y === this.pacman.y)
+
+```
+
+### Wireframes
+
+Early in production, detailed wireframes were produced.
+
+![main page](http://res.cloudinary.com/cloud-vinson/image/upload/v1490983756/pacman-wireframe_pe4zss.jpg)
+
+Changes were made where the game status and directions are placed on the side instead of using Modules
+
+## Future Release
+* [ ] Smarter Pac-Man AI
+* [ ] Multiple Ghosts
+* [ ] Multiple Levels
+* [ ] Sound effects based on game actions
+* [ ] Style Music Player
