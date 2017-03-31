@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ghosts</title>
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./lib/mystyle.scss">
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
+  </head>
+
+  <body>
+    <section class="instructions">
+      <h3>Welcome to Ghost</h3>
+      <br/>
+      Press any key to start
+      <br/>
+      Use arrow keys to control Blinky
+      <br/>
+      Press "q" to pause
+      <br/>
+      Press "e" to resume
+      <br/>
+      Press "p" to turn off pacman auto pilot
+      <br/>
+      Use w-a-s-d controls for pacman
+      <br/>
+    </section>
+    <div class="bodyDiv">
+      <audio controls autoplay>
+      <source src="./resources/MartyParty-PACMAN.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio>
+      <canvas id="pacmanCanvas" width="570" height="660"></canvas>
+      <script type="application/javascript" src="lib/bundle.js"></script>
+    </div>
+    <section class="gameStats">
+      <h3>Pellets Left: </h3>
+    </section>
+  </body>
+</html>

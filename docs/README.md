@@ -1,9 +1,5 @@
 #Ghosts
 
-<!-- [Heroku link][heroku]
-
-[heroku]: http://www.herokuapp.com -->
-
 ##Background
 
 Pac-Man is a 1980s arcade game developed by Namco. This game twist by having the player play as the ghost instead of Pac-Man.
