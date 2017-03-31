@@ -9,12 +9,18 @@ audio {
 }
 
 .instructions {
+  letter-spacing: 1px;
+  margin-top: 10%;
   color: white;
-  font-family: monospace;
+  font-family: "Black Ops One";
   font-size: 15px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .instructions > h3 {
+  letter-spacing: 2px;
   font-size: 30px;
   font-family: 'Black Ops One', cursive;
 }
@@ -25,11 +31,19 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;;
+  margin-top: 5% ;
+  height: 692;
+}
 
+.gameStats{
+    margin-top: 10%;
+    letter-spacing: 2px;
 }
 
 .gameStats > h3 {
+  vertical-align: middle;
   color: white;
   font-size: 30px;
   font-family: 'Black Ops One', cursive;
+  text-align: center;
 }
